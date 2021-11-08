@@ -29,6 +29,6 @@ jobs:
       #     echo "${{steps.findandreplace.outputs.replaced}}"
       - name: Send Google Chat Notification
         run: |
-          curl --location --request POST '${{ secrets.test_chat_webhook }}' \
+          curl --location --request POST '${{ secrets.gchat_webhook }}' \
           --header 'Content-Type: application/json' \
           -d ${{steps.modded.outputs.chat-msg}}
