@@ -1,0 +1,19 @@
+name: Google Chat Notification on Push
+author: Jake Pfaffenroth
+description: Google Chat Notification on Push
+branding:
+  icon: bold
+  color: orange
+inputs:
+  event:
+    description: 'object'
+    required: true
+  steps:
+    description: 'object'
+    required: true
+outputs:
+  chat-msg:
+    description: 'chat msg string literal'
+runs:
+  using: 'node12'
+  main: 'index.js'
