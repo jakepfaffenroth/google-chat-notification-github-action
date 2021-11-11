@@ -1,6 +1,7 @@
 const core = require("@actions/core");
 
 try {
+  const branchName = core.getInput("branch-name");
   const event = JSON.parse(core.getInput("event"));
   const steps = JSON.parse(core.getInput("steps"));
   console.log("steps:", steps);
@@ -34,7 +35,7 @@ try {
     "cards": [
       {
         "header": {
-          "title": "Commit on Main",
+          "title": "Commit on ${branchName}",
           "subtitle": "Pushed by ${event.pusher.name}",
           "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Git_icon.svg/1024px-Git_icon.svg.png",
           "imageStyle": "IMAGE"

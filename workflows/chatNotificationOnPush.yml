@@ -20,6 +20,7 @@ jobs:
       - name: Format Msg
         uses: ./.github/actions/google-chat-notification-on-push/
         with: 
+          branch-name: "${{github.ref_name}}"
           event: "${{toJSON(github.event)}}"
           steps: "${{toJSON(steps)}}"
         id: modded
