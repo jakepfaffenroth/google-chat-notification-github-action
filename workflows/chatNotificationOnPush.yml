@@ -33,7 +33,11 @@ jobs:
           curl --location --request POST '${{ secrets.gchat_webhook }}' \
           --header 'Content-Type: application/json' \
           -d ${{steps.modded.outputs.chat-msg}}
-  Run Playwright tests:
-    runs-on: ubuntu-latest
+  e2e-tests:
+    runs-on: ubuntu-latest # or macos-latest, windows-latest
     steps:
-      uses: microsoft/playwright-github-action@v1.5.0
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+      - uses: microsoft/playwright-github-action@v1
+      - name: Install dependencies and run tests
+        run: npm install && npm test
