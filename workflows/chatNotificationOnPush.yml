@@ -33,3 +33,5 @@ jobs:
           curl --location --request POST '${{ secrets.gchat_webhook }}' \
           --header 'Content-Type: application/json' \
           -d ${{steps.modded.outputs.chat-msg}}
+  Run Playwright tests:
+    uses: microsoft/playwright-github-action@v1.5.0
