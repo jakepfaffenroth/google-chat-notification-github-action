@@ -1,0 +1,14 @@
+{
+  "name": "BBB Test e2e",
+  "version": "1.0.0",
+  "description": "Send notification to Google Chat when a push is made to the designated branch. Chat message includes summary of commits, authors, and file change count in the push, details of the latest commit, and links to view the push diff and latest commit on GitHub.",
+  "main": "index.js",
+  "keywords": [
+    "github action"
+  ],
+  "author": "Jake Pfaffenroth",
+  "license": "MIT",
+  "dependencies": {
+    "@actions/core": "^1.6.0"
+  }
+}

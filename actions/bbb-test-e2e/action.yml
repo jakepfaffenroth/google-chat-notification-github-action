@@ -1,0 +1,37 @@
+name: BBB test e2e
+branding:
+  icon: bold
+  color: orange
+inputs:
+  event:
+    description: 'object'
+    required: true
+  steps:
+    description: 'object'
+    required: true
+outputs:
+  chat-msg:
+    description: 'chat msg string literal'
+runs:
+  using: 'node12'
+  main: 'index.js'
+
+
+
+  steps:
+  - uses: actions/checkout@v2
+  - uses: actions/setup-node@v2
+    with:
+      node-version: '14'
+  - name: Install dependencies
+    run: npm ci
+  - name: Install Playwright
+    run: npx playwright install --with-deps
+  - name: Run your tests
+    run: npm test
+  - name: Upload test results
+    if: always()
+    uses: actions/upload-artifact@v2
+    with:
+      name: playwright-results
+      path: test-results
